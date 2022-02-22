@@ -1,0 +1,1 @@
+ALTER TABLE todo ALTER COLUMN date SET DEFAULT now();
