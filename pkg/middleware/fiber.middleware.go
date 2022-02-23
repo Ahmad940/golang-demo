@@ -1,4 +1,4 @@
-package middlewares
+package middleware
 
 import (
 	"github.com/gofiber/fiber/v2"
@@ -8,10 +8,10 @@ import (
 )
 
 func FiberMiddlewares(app *fiber.App) {
-	// middlewares
+	// middleware
 	app.Use(cors.New())
 	app.Use(recover.New())
 
-	// http middlewares
+	// http middleware
 	app.Get("/monitor", monitor.New())
 }

@@ -40,28 +40,6 @@ func GetAllUsers(ctx *fiber.Ctx) error {
 	return ctx.JSON(users)
 }
 
-func Adduser(ctx *fiber.Ctx) error {
-	var body postgres.InsertUserParams
-
-	err := ctx.BodyParser(&body)
-	if err != nil {
-		return ctx.Status(fiber.StatusBadRequest).JSON(err.Error())
-	}
-
-	errors := validator.ValidateStruct(body)
-	if errors != nil {
-		return ctx.Status(fiber.StatusBadRequest).JSON(errors)
-
-	}
-
-	user, err := service.InsertUser(body)
-
-	if err != nil {
-		return ctx.Status(fiber.StatusBadRequest).JSON(err)
-	}
-	return ctx.JSON(user)
-}
-
 func UpdateUser(ctx *fiber.Ctx) error {
 	var body postgres.UpdateUserParams
 

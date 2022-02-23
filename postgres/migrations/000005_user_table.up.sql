@@ -1,4 +1,4 @@
-CREATE TABLE "users"
+CREATE TABLE IF NOT EXISTS "users"
 (
   id         uuid                 DEFAULT uuid_generate_v4(),
   username   VARCHAR(15) NOT NULL,

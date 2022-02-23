@@ -2,7 +2,7 @@ package app
 
 import (
 	"demo/pkg/config"
-	"demo/pkg/middlewares"
+	"demo/pkg/middleware"
 	"demo/pkg/route"
 	"github.com/gofiber/fiber/v2"
 	"log"
@@ -13,7 +13,7 @@ func InitialiseApp() {
 	app := fiber.New(config.NewFiberConfig())
 
 	// Middlewares
-	middlewares.FiberMiddlewares(app)
+	middleware.FiberMiddlewares(app)
 
 	// Routers
 	route.RoutersInitializer(app)
